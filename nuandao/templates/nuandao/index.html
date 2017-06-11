@@ -14,7 +14,7 @@
             </div>
           </header>
           <div class="post-body-limited">
-          <p>{{ article.article_data }}</p>
+            <p>{% autoescape off %}{{ article.article_data }}{% endautoescape %}</p>
           </div>
           <p>
             <a class="btn" href="{% url 'nuandao:detail' article.id %}">View details »</a>

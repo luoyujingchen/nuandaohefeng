@@ -8,13 +8,25 @@ from nuandao.util import get_summary
 
 class IndexView(generic.ListView):
     template_name = 'nuandao/index.html'
-    context_object_name = 'latest_articles_list'
+    context_object_name = 'articles_list'
 
     def get_queryset(self):
         """return the last five published articles."""
         content = Article.objects.order_by('-publish_date')[:5]
         for c in content:
-            c.article_data = get_summary(c.article_data, 366)+'......'
+            c.article_data = get_summary(c.article_data, 366) + '......'
+        return content
+
+
+class ListView(generic.ListView):
+    template_name = 'nuandao/list.html'
+    context_object_name = 'articles_list'
+
+    def get_queryset(self,**category):
+        """return the last five published articles."""
+        content = Article.objects.get(article_category=category)
+        for c in content:
+            c.article_data = get_summary(c.article_data, 366) + '......'
         return content
 
 

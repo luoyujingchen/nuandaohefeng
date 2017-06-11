@@ -19,5 +19,6 @@ from nuandao import views
 app_name = 'nuandao'
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^article/+(?P<article_id>[0-9]+)/$', views.detail, name='detail')
+    url(r'^article/+(?P<article_id>[0-9]+)/$', views.detail, name='detail'),
+    url(r'^list/+(?P<category>\w+)/$', views.ListView.as_view(), name='list'),
 ]

@@ -1,0 +1,10 @@
+{% extends 'nuandao/base.html' %}
+{% block title %}
+    {{ article.article_title }}
+{% endblock %}
+{% block content %}
+    <h2>{{ article.article_title }}</h2>
+    <article class="article_main">
+    {{ article.article_data }}
+    </article>
+{% endblock %}

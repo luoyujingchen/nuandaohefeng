@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    {% load static %}
+    <link href="{% static "nuandao/css/bootstrap.css" %}" rel="stylesheet">
+    <link href="{% static "nuandao/css/mian.css" %}" rel="stylesheet">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+{% include "nuandao/nav.html" %}
+<div class="container">
+
+    <div class="row clearfix">
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="{% static "nuandao/js/bootstrap.min.js" %}"></script>
+</body>
+</html>
